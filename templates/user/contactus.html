@@ -1,0 +1,47 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+<style>
+.form-control
+{
+margin:10px;
+}
+.txt1
+{
+min-height:70px;
+}
+</style>
+<div class="row contact p-4">
+<div class="h2 text-center">Contact <b class="text-info">Us <i class="fa fa-phone"></i></b></div>
+<div class="col-sm-1"></div>
+<div class="col-sm-10 bg-light" style="min-height:400px">
+    <div class="row">
+        <div class="col-sm-5 p-4">
+            <form method="post">
+                {% csrf_token %}<!-- cross site reforgery-->
+                {% if S %}
+                <div class="alert alert-success">
+                    Thanks for enquiry...
+                </div>
+                {% endif%}
+
+                Name<input type="text" name="name"  required class="form-control" placeholder="Enter Your Name.."/>
+                Mobile<input type="number" name="mobile"  required class="form-control" placeholder="Enter Your Mobile.."/>
+                Email<input type="email" name="email"  required class="form-control" placeholder="Enter Your Email.."/>
+                Message
+                <textarea class="form-control" name="msg" style="min-height:80px;resize:none;" placeholder="Enter Your Message.." required></textarea>
+                <input type="submit" value="Save" class="btn btn-info"/>
+            </form>
+        </div>
+        <div class="col-sm-7 p-4">
+		
+    <h6 class="title fs-2 text-center"  style="color:skyblue">REACH OUT HERE</h6>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3549.4686877614936!2d83.5785673500404!3d27.173002355295417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3996a83210f3f42f%3A0x27bbe8879b0ffd6d!2sMahamaya+IT+Polytechnic%2C+Maharajganj!5e0!3m2!1sen!2sin!4v1547462261957" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+    </div>
+</div>
+<div class="col-sm-1"></div>
+</div>
+{% endblock %}

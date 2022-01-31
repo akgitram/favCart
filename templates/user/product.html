@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+<div class="row " style="min-height:500px">
+<div class="h2 text-center">Products</div>
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+	<div class="row">
+	<div class="col-sm-3">
+	<ul class="list-group">
+  <li class="list-group-item active" aria-current="true">Brand Name</li>
+  {% if cat %}
+  {% for x in cat %}
+  <a href="/user/product?abc={{x.id}}"><li class="list-group-item">{{x.cname}}</li></a>
+	{% endfor %}
+	{% endif %}
+  <a href="/user/product/"><li class="list-group-item">All Brands</li></a>
+	</ul>
+	</div>
+	<div class="col-sm-9">
+	 <div class="row" >
+	{% if prod %}
+	{% for x in prod %}
+	<div class="col-sm-4">
+					<div class="card w-100">
+  <img src="../{{x.ppic}}" class="card-img-top ">
+  <div class="card-body ">
+    <h5 class="card-title">{{x.category}}</h5>
+    <p class="card-text">
+  </p>
+  <div class="" style="height:30px; width:30px; border-radius:50%;border:1px solid blue; background:{{x.color}}"></div>
+  <b>Rs :</b><s class="text-danger btn btn-outline-light">{{x.tprice}}/-</s><i class="text-primary btn btn-outline-light">{{x.disprice}}/-</i></br><b>||{{x.name}}</b>
+	
+  
+    <a href="/user/viewsdetails?msg={{x.id}}" class="btn btn-primary rounded-pill w-100">Buy Now</a>
+</div>
+      		 </div>
+		 </div>
+		 {% endfor %}
+		 {% endif%}	
+	 </div>
+	</div>
+	
+</div>
+</div>
+<div class="col-sm-1"></div>
+</div>
+{% endblock %}
